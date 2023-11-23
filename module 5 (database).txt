@@ -1,0 +1,93 @@
+Q) What do you understand By Database
+
+ans)  Data is a collection of a bunch unit of information. It can be used in a variety of forms like text, numbers, media, bytes, etc. it can be stored in pieces of paper or electronic         memory, etc.
+
+- A database is an organized collection of data, so that it can be easily accessed and managed.
+
+
+Q)  What is Normalization?
+
+ans) Normalization is the process of organizing the data in the database.
+
+- Normalization is used to minimize the redundancy from a relation or set of relations. It is also used to eliminate undesirable characteristics like Insertion, Update, and Deletion 
+
+Anomalies.
+
+- Normalization divides the larger table into smaller and links them using relationships.
+
+
+Q) What is difference between DBMS and RDBMS? 
+
+ans)                    DBMS                          |                 RDBMS
+--------------------------------------------------------------------------------------------------------------
+                                                      |
+   1. DBMS stands for DataBase Managemen stystem.     | 1.RDBMS stands for Relational DataBase Management
+                                                      |    System.
+   2. In DBMS data are store as a file.               | 2. In RDBMS data are store in a tabular form.
+   3. It supports single user.                        | 3. It supports multiple users.
+   4. Normalization is not available in DBMS.         | 4. Normalization is available in RDBMS.
+   5. It allows one user at a time.                   | 5. It allows more than one user at a time.
+   6.Heirarchical arrangement of data.                | 6. Stores data in the form of rows and column.
+   7.Data fetching is slower for the large amount     | 7. Data fetching is fast because of relational
+           of data.                                   |      approach.
+   8.It does not support ACID(Atomicity,              | 8. It support ACID property.
+      Consistency, Isolation,  Durability) property.  |
+   9.Data redundancy is common in this model.         | 9. Keys and indexes do not allow Data redundancy.
+   10. e.g.- XML,Microsoft Access etc.                | 10 .e.g.- mysql,sql server,oracle etc.
+--------------------------------------------------------------------------------------------------------------
+
+ Q) What is MF Cod Rule of RDBMS Systems?
+
+ ans) The MF Cod Rule of RDBMS Systems states that for a system to qualify as an RDBMS, it must be able to manage database entirely through the relational capabilities.
+
+ Q) What do you understand By Data Redundancy?
+ 
+ ans) Data redundancy is a condition created within a database or data storage technology in which the same piece of data is held in two separate places.
+
+ Q) What is DDL Interpreter?
+
+ ans) DDL Interpreter is a component of the query processor that processes the data definition language (DDL) statements.
+
+   - DDL statements are used to create, modify, or delete the structure of the database objects.
+   - like CREATE,DROP,TRUNCATE,ALTER,RENAME,COMMENT
+
+ Q) What is DML Compiler in SQL? 
+ 
+ ans)  DML stands for Data Manipulation Language. It is a subset of SQL statements that are used to manipulate the data stored in tables.
+
+   - DML commands include SELECT, INSERT, UPDATE, DELETE
+
+ Q) What is SQL Key Constraints writing an Example of SQL Key Constraints
+
+ ans) SQL key constraints are rules that ensure the data in a table is consistent and valid. They are used to prevent invalid data from being entered into the database, which could cause errors or inconsistencies.
+
+  -  There are two types of SQL key constraints: primary key and foreign key.
+
+  -  primary key :- A primary key constraint defines a column or a set of columns that uniquely identify each row in a table. A primary key cannot have NULL values, and there can be only one primary key in a table.
+   
+  -ex. CREATE TABLE Customers (
+  CustomerID  int NOT NULL PRIMARY KEY,
+  Name varchar(50) NOT NULL,
+  Email varchar(50) NOT NULL
+);
+
+ -   foreign key :- A foreign key constraint defines a column or a set of columns that refer to a primary key in another table. A foreign key establishes a relationship between two tables, and ensures that the data in the foreign key column matches the data in the primary key column of the referenced table. A foreign key can have NULL values, and there can be multiple foreign keys in a table.
+
+-ex. CREATE TABLE Orders (
+  OrderID int NOT NULL PRIMARY KEY,
+  OrderID int NOT NULL FOREIGN KEY REFERENCES Customers(CustomerID),
+);
+
+Q)  What is save Point? How to create a save Point write a Query?
+
+ans) The SAVEPOINT statement in MySQL is used to save a transaction temporarily.
+
+Q)  What is trigger and how to create a Trigger in SQL?
+
+ans) A trigger is a special kind of stored procedure that is executed automatically when a certain event occurs on a table or view in a database. For example, you can create a trigger that inserts a record into another table when a new record is added to the original table. Triggers can be used to enforce data integrity, perform auditing, or implement business logic.
+
+  -syntex :- CREATE TRIGGER trigger_name [ BEFORE | AFTER ] [ INSERT | UPDATE | DELETE ] ON table_name [ FOR EACH ROW | FOR EACH STATEMENT ] AS trigger_body;
+
+ -suppose you have a table called customers that stores the information of your customers, and you want to create a trigger that inserts a record into another table called audit whenever a customer’s email is updated. You can use the following SQL statement to create such a trigger.
+
+ -ex.CREATE TRIGGER email_audit AFTER UPDATE OF email ON customers FOR EACH ROW AS INSERT INTO audit (customer_id, old_email, new_email, update_time) VALUE
